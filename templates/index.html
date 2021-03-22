@@ -1,0 +1,130 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block title %}index{% endblock %}
+
+{% block header %}
+
+{% endblock %}
+
+{% block contents %}
+
+<div class="content" id="content_skills">
+    <div class="Skills_skills">
+        <div class="Skills_skills_list">Overview</div>
+        <div class="Skills_skills_list_overview">
+            Javascript, Node.js, MongoDB, MySQL, AWS, Linux, Git/Github, HTML/CSS, React, Python/Django, Java
+        </div>
+        <div class="Skills_skills_name">Javascript</div>
+        <div class="Skills_skills_name_detail">
+            <ul>
+                <li class="Skills_skills_js_details-element">
+                    ES6와 이후의 자바스크립트 문법을 익숙하게 사용할 수 있습니다.
+                </li>
+                <li class="Skills_skills_js_details-element">
+                    ES5와 ES6의 차이점에 대해 이해하고 있습니다.
+                </li>
+                <li class="Skills_skills_js_details-element">
+                    타입스크립트에 관심을 가지고 공부하고 있습니다.
+                </li>
+            </ul>
+        </div>
+        <div class="Skills_skills_name">MySQL</div>
+        <div class="Skills_skills_name_detail">
+            <ul>
+                <li class="Skills_skills_mysql_details_element">
+                    MySql의 기본 문법을 사용할 수 있습니다.
+                </li>
+                <li class="Skills_skills_mysql_details_element">
+                    OneToOne, OneToMany, ManyToMany를 사용하여 데이터 모델링을 할 수 있습니다.
+                </li>
+            </ul>
+        </div>
+        <div class="Skills_skills_name">AWS</div>
+        <div class="Skills_skills_name_detail">
+            <ul>
+                <li class="Skills_skills_aws_details">
+                    AWS EC2 인스턴스를 생성하여 서버 어플리케이션을 배포할 수 있습니다.
+                </li>
+                <li class="Skills_skills_aws_details">
+                    Django 서버를 ec2를 이용하여 배포해 본 경험이 있습니다.
+                </li>
+                <li class="Skills_skills_aws_details">
+                    S3를 이용하여 데이터를 저장하고 이용해본 경험이 있습니다.
+                </li>
+            </ul>
+        </div>
+        <div class="Skills_skills_name">Linux</div>
+        <div class="Skills_skills_name_detail">
+            <ul>
+                <li class="Skills_skills_linux">
+                    리눅스 기본 커맨드를 사용할 수 있습니다.
+                </li>
+                <li class="Skills_skills_linux">
+                    현재 우분투 운영체제를 사용하고 있습니다.
+                </li>
+            </ul>
+        </div>
+        <div class="Skills_skills_name">Github</div>
+        <div class="Skills_skills_name_detail">
+            <ul>
+                <li class="Skills_skills_git_details">
+                    기본적인 Gitgub를 이용할 수 있습니다..
+                </li>
+            </ul>
+        </div>
+        <div class="Skills_skills_name">HTML/CSS</div>
+        <div class="Skills_skills_name_detail">
+            <ul>
+                <li class="Skills_skills_html_css_details_element">
+                    기본적인 html과 css를 사용할 수 있습니다.
+                </li>
+            </ul>
+        </div>
+        <div class="Skills_skills_name">Python/Django</div>
+        <div class="Skills_skills_name_detail">
+            <ul>
+                <li class="Skills_skills_python_details_element">
+                    python은 제가 제일 처음 배운 언어입니다.
+                </li>
+                <li class="Skills_skills_python_details_element">
+                    크롤링, 딥러닝, 머신러닝을 공부하였습니다.
+                </li>
+                <li class="Skills_skills_python_details_element">
+                    Django를 사용하여 Restful API 서버를 만들 수 있습니다.
+                </li>
+            </ul>
+        </div>
+        <div class="Skills_skills_name">Java</div>
+        <div class="Skills_skills_name_detail">
+            <ul>
+                <li class="Skills_skills_java_details_element">
+                    자바 또한 기본적인 이용을 할 수 있습니다.
+                </li>
+            </ul>
+        </div>
+    </div>
+</div>
+
+<div class="content" id="content_table">
+    <table class="table table-sriped">
+        <thead class="text-center">
+        <td><B>title</B></td>
+        <td><B>contents</B></td>
+        <td><B>username</B></td>
+        <td><B>Create_date</B></td>
+        </thead>
+        {% for content in contents %}
+        <tbody class="text-center user-block text-muted">
+            <tr>
+                <td><a href="{% url 'post_detail' pk=content.pk %}" class="text-muted">{{ content.title }}</a></td>
+                <td><a href="{% url 'post_detail' pk=content.pk %}" class="text-muted">{{ content.contents }}</a></td>
+                <td><a href="{% url 'post_detail' pk=content.pk %}" class="text-muted">{{ content.user }}</a></td>
+                <td><a href="{% url 'post_detail' pk=content.pk %}" class="text-muted">{{ content.created_at | date:"Y-m-d H:i" }}</a></td>
+            </tr>
+        </tbody>
+        {% endfor %}
+
+    </table>
+</div>
+
+{% endblock %}
