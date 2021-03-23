@@ -9,6 +9,7 @@ class Post(BaseModel):
     user = models.ForeignKey(User, on_delete=models.CASCADE)
     title = models.CharField(max_length=200)
     contents = models.TextField()
+    photo = models.ImageField(blank=True)
 
     class Meta:
         ordering = ['-created_at']
